@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/application/config/routes.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application/core/VS_Controller.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/fonts" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/assets/js" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/assets/js/bootstrap-datepicker.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/bootstrap-multiselect-collapsible-groups.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/bootstrap-multiselect.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/custom.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/jquery-1.11.3.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/jquery.fullscreen-min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/script.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/assets/js/star-rating.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/views/user/profile.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

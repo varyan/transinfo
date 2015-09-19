@@ -1,0 +1,3 @@
+<?='<pre>'?>
+<?php print_r($rate_info) ?>
+<?='</pre>'?>
