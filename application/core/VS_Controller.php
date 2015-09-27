@@ -8,12 +8,40 @@ abstract class VS_Controller extends CI_Controller{
      * */
     protected $data = [];
     /**
+     * @var array $js_data
+     * @functionality to have all js files names inserted in this array
+     * */
+    protected $js_data = [];
+    /**
+     * @var array $css_data
+     * @functionality to have all css files names inserted in this array
+     * */
+    protected $css_data = [];
+    /**
      * Constructor method
      * @functionality automatically will call init method
      * */
     public function __construct(){
         parent::__construct();
         $this->init();
+    }
+    /**
+     * Validation method
+     * @param array $data
+     * @param array $rules
+     * @return boolean
+     * */
+    protected function validation($data,$rules){
+        $this->load->library('form_validation');
+        $i = 0;
+        foreach($data as $key => $value){$i++;
+            $this->form_validation->set_rules($key,$value,$rules[$key]);
+            if($i > 3 && !$this->form_validation->run()){
+                return false;
+            }
+        }
+
+        return $this->form_validation->run();
     }
     /**
      * JSON method

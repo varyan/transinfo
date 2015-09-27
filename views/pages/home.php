@@ -47,10 +47,10 @@
                     <div class="panel-body">
                         <div class="form-inline no-margin">
                             <div class="form-group">
-                                <input type="text" class="form-control input-sm animation-delay7 bounceIn" id="from_point">
+                                <input style="min-width: 200px; width: 300px;" type="text" class="form-control input-sm animation-delay7 bounceIn" id="from_point">
                             </div><!-- /form-group -->
                             <div class="form-group">
-                                <input type="text" class="form-control input-sm animation-delay8 bounceIn" id="to_point">
+                                <input style="min-width: 200px; width: 300px;" type="text" class="form-control input-sm animation-delay8 bounceIn" id="to_point">
                             </div><!-- /form-group -->
                             <button type="button" onclick="GetRoute()" class="btn btn-sm btn-primary animation-delay9 bounceIn"><?=$system_title['get_rout']?></button>
                         </div>
@@ -60,6 +60,9 @@
             <div class="col-md-8">
                 <div id="distance" style="display: none;"></div>
                 <div id="map" style="display:none; min-height: 300px; height: 500px;"></div>
+                <div class="col-md-12 padding-lg">
+
+                </div>
             </div>
             <div class="col-md-4">
                 <div id="dvPanel"></div>

@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Admin extends VS_Controller{
+class Admin extends CI_Controller{
+    private $data = [];
     /**
      * Constructor method
      * */
@@ -11,10 +12,25 @@ class Admin extends VS_Controller{
         $this->default_actions();
     }
     /**
+     * JSON method
+     * @param array $data
+     * @param string $message(default '')
+     * @param string $status(default 'success')
+     * @return json object
+     * */
+    protected function json($data,$message = '',$status = 'success'){
+        return json_encode(array(
+            'message'   =>$message,
+            'status'    =>$status,
+            'response'  =>$data
+        ));
+    }
+    /**
      * View method
      * @param string $page(default index)
      * */
     public function view($page = 'dashboard'){
+
         $page = ($page == 'index') ? 'dashboard' : $page;
         if(!$this->session->userdata('is_admin'))
             $page = 'login';
@@ -34,7 +50,9 @@ class Admin extends VS_Controller{
         if($this->input->post()) {
             $user = $this->admin_model->get_where([
                 'username' => $this->input->post('user'),
-                'password' => md5($this->input->post('pass')).'_vs_ayceqart'
+                'password' => md5($this->input->post('pass')).'_trans',
+                'role'     => 'admin',
+                'type_id'  => 0,
             ]);
             if(is_null($user)){
                 echo $this->json($user, 'Invalid username or password', 'error');

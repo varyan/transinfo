@@ -1,4 +1,15 @@
 var href = location.href.split('/').pop();
+
+if(href == 'ru' || href == 'en'){
+    if(readCookie('from_point')){
+        document.getElementById('from_point').value = readCookie('from_point');
+        document.getElementById('to_point').value = readCookie('to_point');
+        setTimeout(function () {
+            GetRoute();
+        },3000);
+    }
+}
+
 if(typeof $("input#from_point").val() != 'undefined' && typeof $("input#to_point").val() != 'undefined') {
     var source, destination, map, locType = 'load', auto_from = null, auto_to = null, auto_type;
     var directionsDisplay;
@@ -45,6 +56,7 @@ $(document).ready(function () {
 });
 
 function GetRoute() {
+
     var yerevan = new google.maps.LatLng(40.179186, 44.499103);
     var mapOptions = {
         zoom: 7,
@@ -61,6 +73,11 @@ function GetRoute() {
     //*********DIRECTIONS AND ROUTE**********************//
     source = document.getElementById("from_point").value;
     destination = document.getElementById("to_point").value;
+
+    createCookie('from_point',source);
+    createCookie('to_point',destination);
+
+    $('#map').next().html('<button onclick="removeMap()" class="btn btn-sm btn-primary btn-block">Remove map</button>');
 
     var request = {
         origin: source,
@@ -131,4 +148,14 @@ function insertLocation(auto){
             document.getElementById(locType+'_'+addressType).value = val;
         }
     }
+}
+
+function removeMap(){
+    document.getElementById("from_point").value = '';
+    document.getElementById("to_point").value = '';
+    createCookie('from_point','');
+    createCookie('to_point','');
+    $('#map').css('display','none');
+    $('#map').next().html('');
+    $('#dvPanel').html('');
 }

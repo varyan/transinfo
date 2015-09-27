@@ -15,7 +15,7 @@ class Main extends VS_Controller {
 	 * @param string $view
 	 * */
 	public function page($view = 'home'){
-
+		$this->data['title'] = ucfirst($view);
 		$view = ($view === 'index') ? 'pages/home' : 'pages/'.$view;
 
 		if(!file_exists(VIEWPATH.$view.'.php')){
@@ -23,7 +23,6 @@ class Main extends VS_Controller {
 		}
 
 		$this->data['page'] = $view;
-		$this->data['title'] = ucfirst($view);
 
 		$this->load->view('includes/content',$this->data);
 	}

@@ -143,6 +143,7 @@ class Client_Action extends VS_Controller{
             }
         }
         $data['loading']    = json_encode($loading);
+        $data['user_id']    = $this->data['user']->id;
         $data['permission'] = json_encode($permission);
         $data['created_at'] = date('d-m-Y H:i:s');
         $data['updated_at'] = date('d-m-Y H:i:s');

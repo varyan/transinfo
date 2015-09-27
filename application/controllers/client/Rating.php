@@ -8,6 +8,7 @@ class Rating extends VS_Controller{
      * */
     public function __construct(){
         parent::__construct();
+        if(!$this->data['auth']) redirect (base_url($this->data['lang']));
         $this->load->model('rating_model');
     }
     /**

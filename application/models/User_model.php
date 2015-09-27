@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -8,6 +9,12 @@ class User_model extends VS_Model{
      * */
     public function __construct(){
         parent::__construct('users');
+        $this->set_validation_prototype([
+            'username'  =>'trim|required|max_length[50]|min_length[6]|differs[password]',
+            'password'  =>'trim|required|max_length[50]|min_length[6]|matches[confirm]',
+            'confirm'   =>'matches[password]',
+            'email'     =>'trim|required|max_length[50]|valid_email'
+        ]);
     }
     /**
      * User_model login function
@@ -86,7 +93,7 @@ class User_model extends VS_Model{
      * */
     public function get_by_id($id){
         $this->db->where('user_id',$id);
-        $this->db->select('contact_person_name,contact_person_surname,user_id');
+        $this->db->select('contact_person_name,contact_person_surname,user_id as uid');
         $this->db->from('user_info');
         $query = $this->db->get();
         return $query->row();

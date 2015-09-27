@@ -13,5 +13,5 @@
         </div><!-- /.row -->
     </form>
 <?php else : ?>
-    <h5 class="text-primary text-center well">Вы одобрили эту сделку за <?=$deals[0]->deal_sum?> рублей.</h5>
+    <h5 class="text-primary text-center well"><?=$system_title['deal_for']?> <?=$deals[0]->deal_sum?> рублей.</h5>
 <?php endif; ?>

@@ -8,19 +8,19 @@
         <div class="padding-md clearfix">
             <table class="table table-striped" id="dataTable">
                 <thead>
-                    <tr>
+                    <!--<tr>
                         <th colspan="9">
-                            <a class="ajax btn btn-primary btn-sm" href="<?=base_url()?>admin#/ajax_admin/add/user">
+                            <a class="ajax btn btn-primary btn-sm" href="<?/*=base_url()*/?>admin#/ajax_admin/add/user">
                                 <i class="fa fa-plus"></i> Add new
                             </a>
                         </th>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <th>ID</th>
+                        <th>User role</th>
                         <th>IP Address</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Status</th>
                         <th>Admin Verified</th>
                         <th>Created Date</th>
                         <th>Updated Date</th>
@@ -31,10 +31,10 @@
                     <?php foreach($users as $user) : ?>
                         <tr>
                             <th><?=$user->id?></th>
+                            <th><?=$user->role?></th>
                             <th><?=$user->ip_address?></th>
                             <th><?=$user->username?></th>
                             <th><?=$user->email?></th>
-                            <th><?=$user->status?></th>
                             <th><a class="ajax" href="<?=base_url()?>action/set_active/users/<?=$user->id.'/'.(($user->admin_verified - 1) * -1)?>"><span<?=($user->admin_verified) ? " class='label label-success'>Yes" : " class='label label-danger'>No" ?></span></a></th>
                             <th><?=$user->created_at?></th>
                             <th><?=$user->updated_at?></th>

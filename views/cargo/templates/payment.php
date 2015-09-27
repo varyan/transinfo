@@ -19,7 +19,7 @@
             <li class="list-group-item clearfix">
                 <div class="pull-left m-left-sm">
                     <span><?=$system_title['prepay']?> : </span>
-                    <span><?=$cargo_info->prepay?> %</span><br>
+                    <span><?=(isset($cargo_info->prepay) && $cargo_info->prepay > 0) ? $cargo_info->prepay : 0?> %</span><br>
                 </div>
             </li>
         </ul><!-- /list-group -->

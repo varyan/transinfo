@@ -23,14 +23,18 @@ class Action extends VS_Controller {
 		if($type == 'registered'){$this->registered();}
 
 		$data = null;
-		if(!$this->validate(array(
-			['username',		$this->data['system_title']['username'],		'trim|required|max_length[50]|min_length[6]|differs[password]'],
-			['password',		$this->data['system_title']['password'],		'trim|required|max_length[50]|min_length[6]|matches[confirm]'],
-			['confirm',			$this->data['system_title']['confirm_pass'],	'matches[password]'],
-			['email',			$this->data['system_title']['email'],			'trim|required|max_length[50]|email'],
-		))){
+
+        $rules = $this->user_model->get_validation_prototype();
+        $validation = $this->validation([
+            'username'  =>$this->data['system_title']['username'],
+            'password'  =>$this->data['system_title']['password'],
+            'confirm'   =>$this->data['system_title']['confirm_pass'],
+            'email'     =>$this->data['system_title']['email'],
+        ],$rules);
+
+		if(!$validation){
 			$data = $this->session->set_flashdata('error',validation_errors());
-			$this->session->set_userdata('form_valid',$_POST);
+			$this->session->set_userdata('form_valid',$this->input->post());
 			redirect(base_url($this->session->userdata('lang').'/register/'.$this->types[$type]));
 		}else {
 			$data = $this->insert_collect($type);

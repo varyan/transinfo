@@ -14,7 +14,7 @@ class Register extends VS_Controller {
      * @param string @view
      * */
     public function page($view = 'client'){
-
+        $this->data['title'] = ucfirst($view);
         if($this->session->userdata('is_logged_in')){
             $view = 'pages/'.'error';
         }else{
@@ -24,7 +24,6 @@ class Register extends VS_Controller {
 
         }
         $this->data['page'] = $view;
-        $this->data['title'] = ucfirst($view);
         $this->load->view('includes/content',$this->data);
     }
 }

@@ -58,9 +58,8 @@
 <div class="form-group">
     <div class="col-md-3"><label><?=$system_title['mobile_phone']?></label></div>
     <div class="col-md-9">
-        <div class="input-group">
+        <div class="input-group paddingTB-xs">
             <input type="text" name="mobile_phone_number[]" class="form-control input-sm bounceIn animation-delay1">
-            <p></p>
             <span class="input-group-addon"><a style="cursor: pointer;" class="input-plus" id="number-plus"><i class="fa fa-plus"></i></a></span>
         </div>
     </div>

@@ -1,11 +1,11 @@
 var BaseURL = '', Type = 1; activeEdit = false, old_text = '', fullTable = false;
+
 $(document).ready(function () {
 
-    $('#internal_parameters').multiselect({
+    $('.internal_parameters').multiselect({
         buttonClass: 'btn btn-default btn-sm',
         includeSelectAllOption: true,
         selectAllText: 'Check all!',
-        enableFiltering: true
     });
 
 
@@ -103,6 +103,10 @@ $(document).ready(function () {
                 $(this).parent('li').addClass('active');
                 $($(this).attr('href')).addClass('in active');
             }else{
+                if($(this).attr('href') == '#overview'){
+                    $(this).parent('li').addClass('active');
+                    $($(this).attr('href')).addClass('in active');
+                }
                 $(this).parent('li').removeClass('active');
                 $($(this).attr('href')).removeClass('in').removeClass('active');
             }
@@ -110,15 +114,16 @@ $(document).ready(function () {
         $(this).parent('li').addClass('active');
     }
 
-    $('a.input-plus').click(function () {
+    $(document).on('click','a.input-plus',function () {
+        var controlForm = $(this).parent().parent().parent();
         var name = $(this).parent().prev().prev().attr('name');
-        $(this).parent().prev('p').append('' +
-            '<div class="input-group col-lg-11" style="padding-left: 12px; padding-top: 3px;">'+
-            '<input class="form-control input-sm animation-delay2 zoomIn" type="text" required name="'+ name +'">'+
-            '<p></p>'+
-            '<span class="input-group-addon"><a style="cursor: pointer;" class="input-minus"><i class="fa fa-minus"></i></a></span>'+
-            '</div>'
-        );
+        var newInput = $(this).parent().parent().clone();
+        controlForm.append(newInput);
+        controlForm.find('.fa-plus:not(:last)')
+            .removeClass('fa-plus').addClass('fa-minus');
+        $(this).removeClass('input-plus').addClass('input-minus');
+    }).on('click','a.input-minus', function () {
+        $(this).parents('.input-minus:first').remove();
     });
 
     $('.tab_id_save').click(function () {

@@ -18,6 +18,6 @@ class LangSwitch extends CI_Controller{
     public function change($lang = "ru") {
         $lang = ($lang != "") ? $lang : "ru";
         $this->session->set_userdata('lang',$lang);
-        redirect(base_url().$lang.$this->session->userdata('curr_url'));
+        redirect(base_url($lang.$this->session->userdata('curr_url')));
     }
 }

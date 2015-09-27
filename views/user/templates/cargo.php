@@ -39,11 +39,11 @@
                         </div>
                         <div class="col-md-3">
                             <label><?=$system_title['city']?></label>
-                            <input id="load_administrative_area_level_1" type="text" name="load_city" class="form-control input-sm ">
+                            <input id="load_locality" type="text" name="load_city" class="form-control input-sm ">
                         </div>
                         <div class="col-md-3">
                             <label><?=$system_title['region']?></label>
-                            <input id="load_locality" type="text" name="load_region" class="form-control input-sm ">
+                            <input id="load_administrative_area_level_1" type="text" name="load_region" class="form-control input-sm ">
                         </div>
                     </div><!-- /form-group -->
                     <div class="form-group">
@@ -56,11 +56,11 @@
                         <div class="col-md-3"><label></label></div>
                         <div class="col-md-3">
                             <label><?=$system_title['country']?></label>
-                            <input id="unload_country" type="text" name="unload_country" class="form-control input-sm ">
+                            <input id="unload_administrative_area_level_1" type="text" name="unload_country" class="form-control input-sm ">
                         </div>
                         <div class="col-md-3">
                             <label><?=$system_title['city']?></label>
-                            <input id="unload_administrative_area_level_1" type="text" name="unload_city" class="form-control input-sm ">
+                            <input id="unload_country" type="text" name="unload_city" class="form-control input-sm ">
                         </div>
                         <div class="col-md-3">
                             <label><?=$system_title['region']?></label>

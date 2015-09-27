@@ -7,12 +7,28 @@ class Admin_action extends VS_Controller {
      * */
     public function __construct(){
         parent::__construct();
+        if($this->session->is_admin !== false){
+            redirect(base_url('admin'));
+        }
         $this->load->model('admin_model');
     }
     /**
      * Insert method
-     * @important this is for administrator
-     * @remember must move this in to the admin action Class
+     * @param string $table name
+     * @param array $data name
+     * @permissions work only for database languages table
+     * */
+    public function update($table,$data){
+        $this->admin_model->set_table($table);
+        $data = $this->input->post();
+        $data['created_at'] = date('d-m-Y H:i:s');
+        $data['updated_at'] = date('d-m-Y H:i:s');
+
+        $this->admin_model->update($table,$data);
+
+    }
+    /**
+     * Insert method
      * @param string $table name
      * @permissions work only for database languages table
      * */

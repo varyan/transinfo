@@ -16,8 +16,8 @@ class User extends VS_Controller {
 	 * @param string $view
 	 * */
 	public function page($view = 'profile'){
+		$this->data['title'] = ucfirst($view);
 		$view = ($view === 'index') ? 'user/profile' : 'user/'.$view;
-
 		if(!file_exists(VIEWPATH.$view.'.php')){
 			$view = 'pages/'.'error';
 		}
@@ -25,7 +25,6 @@ class User extends VS_Controller {
 		$this->data_collect();
 
 		$this->data['page'] = $view;
-		$this->data['title'] = ucfirst($view);
 
 		$this->load->view('includes/content',$this->data);
 	}
@@ -37,11 +36,17 @@ class User extends VS_Controller {
         $this->load->model('cargo_model');
         $this->data['cargoes'] = ($this->data['user']->type_id == 2)
             ? $this->cargo_model->get()
-            : $this->cargo_model->join_where([
-                    ['deals','deal_for_id = user_id and deal_item_id=cargo.id'],
-                ],
+            : $this->cargo_model->get_where(
                 ['user_id'=>$this->data['user']->id,]
             );
+
+		$this->data['user_deals'] = ($this->data['user']->type_id == 1)
+			? function($cargo_id){
+				return $this->cargo_model->get_cargo_deals_client($cargo_id);
+			}
+			: function($cargo_id){
+				return $this->cargo_model->get_cargo_deals_transport($cargo_id);
+			} ;
 
 		$this->load->model('user_model');
         $this->data['get_by_id'] = function($id){

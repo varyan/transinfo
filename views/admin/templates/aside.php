@@ -40,6 +40,20 @@
                 <li class="openable">
                     <a href="#">
 								<span class="menu-icon">
+									<i class="fa fa-list fa-lg"></i>
+								</span>
+								<span class="text">
+									Auction
+								</span>
+                        <span class="menu-hover"></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/auctions"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
+                    </ul>
+                </li>
+                <li class="openable">
+                    <a href="#">
+								<span class="menu-icon">
 									<i class="fa fa-user fa-lg"></i>
 								</span>
 								<span class="text">
@@ -49,10 +63,10 @@
                     </a>
                     <ul class="submenu">
                         <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/users"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
-                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/add/user"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>
+                        <!--<li><a class="ajax" href="<?/*=base_url()*/?>admin#/ajax_admin/add/user"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>-->
                     </ul>
                 </li>
-                <li class="openable">
+                <!--<li class="openable">
                     <a href="#">
 								<span class="menu-icon">
 									<i class="fa fa-list fa-lg"></i>
@@ -63,11 +77,11 @@
                         <span class="menu-hover"></span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/menus"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
-                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/add/menu"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>
+                        <li><a class="ajax" href="<?/*=base_url()*/?>admin#/ajax_admin/menus"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
+                        <li><a class="ajax" href="<?/*=base_url()*/?>admin#/ajax_admin/add/menu"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>
                     </ul>
-                </li>
-                <li class="openable">
+                </li>-->
+                <!--<li class="openable">
                     <a href="#">
 								<span class="menu-icon">
 									<i class="fa fa-language fa-lg"></i>
@@ -78,10 +92,10 @@
                         <span class="menu-hover"></span>
                     </a>
                     <ul class="submenu">
-                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/languages"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
-                        <li><a class="ajax" href="<?=base_url()?>admin#/ajax_admin/add/language"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>
+                        <li><a class="ajax" href="<?/*=base_url()*/?>admin#/ajax_admin/languages"><span class="submenu-label"><i class="fa fa-list"></i> List</span></a></li>
+                        <li><a class="ajax" href="<?/*=base_url()*/?>admin#/ajax_admin/add/language"><span class="submenu-label"><i class="fa fa-plus"></i> Add</span></a></li>
                     </ul>
-                </li>
+                </li>-->
                 <li class="openable">
                     <a href="#">
 								<span class="menu-icon">

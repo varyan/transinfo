@@ -31,7 +31,7 @@
     </h5>
     <div class="col-md-12 text-center">
         <h3 class="rating-num">
-            <i class="fa fa-star"></i> Total <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i> <?=$system_title['total']?> <i class="fa fa-star"></i>
             <?php
             $rates = $get_rates($user->id);
             $rate = 0;

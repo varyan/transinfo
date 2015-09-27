@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <link rel="shortcut icon" href="<?=base_url()?>assets/img/title-icon.png" />
     <link href="<?=base_url()?>assets/css/global.css" rel="stylesheet">
     <script src="<?=base_url()?>assets/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=<?=$api_lang?>"></script>

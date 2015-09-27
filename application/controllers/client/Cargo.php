@@ -8,6 +8,7 @@ class Cargo extends VS_Controller{
      * */
     public function __construct(){
         parent::__construct();
+        if(!$this->data['auth']) redirect (base_url($this->data['lang']));
         $this->collect_date();
     }
     /**
@@ -30,7 +31,7 @@ class Cargo extends VS_Controller{
         $this->data['deals'] = function($cargo_id){
             return $this->cargo_model->get_where([
                 'deal_item_id'=>$cargo_id,
-                'deal_sender_id'=>$this->data['user']->id
+                'deal_for_id'=>$this->data['user']->id
             ],'deal_created_at,deal_sum','deals');
         };
         $this->data['user_find_id'] = $this->session->userdata('id_find');

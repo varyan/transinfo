@@ -7,6 +7,10 @@ class VS_Model extends CI_Model{
      * */
     protected $table;
     /**
+     * @var array $valid_prototype
+     * */
+    private $valid_prototype = array();
+    /**
      * Constructor
      * @param boolean/string $table (default false)
      * */
@@ -179,5 +183,21 @@ class VS_Model extends CI_Model{
      * */
     public function get_table(){
         return $this->table;
+    }
+    /**
+     * Get validation prototype method
+     * @return array
+     * */
+    public function get_validation_prototype(){
+        return $this->valid_prototype;
+    }
+    /**
+     * Set validation prototype method
+     * @param array
+     * */
+    protected function set_validation_prototype($rules){
+        foreach($rules as $key => $value){
+            $this->valid_prototype[$key] = $value;
+        }
     }
 }

@@ -1,3 +1,4 @@
+<?php $dials = $deals($cargo_info->id) ?>
 <div id="breadcrumb">
     <ul class="breadcrumb text-center">
         <li class="text-info"><i class="fa fa-list"></i> <a href="<?=base_url($lang.'/user/profile')?>"><?=$system_title['cargo_list']?></a></li>
@@ -18,7 +19,9 @@
             <div class="col-md-6">
                 <?php $this->load->view('cargo/templates/payment'); ?>
                 <?php $this->load->view('cargo/templates/map'); ?>
+                <?php if(count($dials) || $user->type_id != 1) : ?>
                 <?php $this->load->view('cargo/templates/rate_show'); ?>
+                <?php endif; ?>
             </div>
             <script>
                 var source, destination, map;

@@ -16,7 +16,9 @@
                 <th><?=$system_title['weight']?></th>
                 <th><?=$system_title['volume']?></th>
                 <th><?=$system_title['body_type']?></th>
+                <?php if($user->type_id == 1) : ?>
                 <th><?='Status'?></th>
+                <?php endif; ?>
                 <?php /*
                 <th><?=$system_title['cl_payments']?></th>
                 <th><?=$system_title['prepay']?></th>
@@ -27,9 +29,13 @@
             </thead>
             <tbody>
             <?php if(isset($cargoes)): ?>
-                <?php foreach($cargoes as $cargo) : ?>
+                <?php foreach($cargoes as $cargo) : $deals = $user_deals($cargo->id); ?>
                     <tr>
-                        <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$cargo->id)?></td>
+                        <td style="background:<?php
+                            if ($deals)  echo "#3ec291";
+                            else echo "#fb5a43";
+                        ?> !important;">
+                            <?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$cargo->id)?></td>
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$cargo->title)?></td>
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$cargo->date_from)?></td>
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$cargo->date_to)?></td>
@@ -39,12 +45,16 @@
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$system_title['from'].' '.$cargo->from_weight.'<br>'.$system_title['to'].' '.$cargo->to_weight)?></td>
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$system_title['from'].' '.$cargo->from_volume.'<br>'.$system_title['to'].' '.$cargo->to_volume)?></td>
                         <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$body_types[$cargo->body_type])?></td>
-                        <?php if($user->type_id == 1 && isset($cargo->deal_sender_id)) : ?>
-                            <?php $dealer = $get_by_id($cargo->deal_sender_id); ?>
-                            <td><?=anchor(base_url($lang.'/cargo/show/'.$cargo->id),$dealer->contact_person_name.' '.$dealer->contact_person_surname)?></td>
-                        <?php else : ?>
-                            <th><?='Not confirmed'?></th>
-                        <?php endif; ?>
+                        <?php if($user->type_id == 1) {
+                            if ($deals) { $i = 0;
+                                echo "<td>";
+                                foreach ($deals as $deal) {$i++;
+                                    if($i <= 3) echo '<p><a href="'.base_url($lang.'/rating/show/'.$deal->deal_sender_id).'">' . $deal->deal_sender_id . ' - ' . $deal->deal_sum . '</a></p>';
+                                    else{echo "<p class='padding-sm'>Show all</p>";break;}
+                                }
+                                echo "</td>";
+                            }else{echo '<td>'.$system_title['no_offers'].'</td>';}
+                        }?>
                         <?php /*
                         <td><?=$payment_types[$cargo->payment_type]?></td>
                         <td><?=$cargo->prepay?>%</td>

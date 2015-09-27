@@ -13,7 +13,7 @@
                         <div class="col-xs-12 col-md-6 text-center">
                             <?php $user_find_id = ($user->type_id == 1) ? $user_find_id : $cargo_info->user_id ?>
                             <div class="rating">
-                                <a href="<?=base_url($lang.'/rating/show/'.$user_find_id)?>"><h3><i class="fa fa-star"></i> Total <i class="fa fa-star"></i></h3></a>
+                                <a href="<?=base_url($lang.'/rating/show/'.$user_find_id)?>"><h3><i class="fa fa-star"></i> <?=$system_title['total']?> <i class="fa fa-star"></i></h3></a>
                             </div>
                             <h3 class="rating-num">
                                 <?php

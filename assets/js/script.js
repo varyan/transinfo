@@ -1,4 +1,4 @@
-var page = '', active = false, BaseURL = '';
+var page = '', active = false, BaseURL = '', timerOut = 5;
 
 LoadContent(location.href);
 
@@ -44,6 +44,8 @@ $(document).on('click','a.ajax',function (event) {
 
 function LoadContent(url){
     var load = url.split('#/')[1];
+    if(location.href != 'http://localhost/transinfo.ru/admin')
+        var title = load.split('/')[1];
     $.ajax({
         url:load,
         type:"POST",
@@ -56,6 +58,8 @@ function LoadContent(url){
         }
     });
     window.history.pushState('','',url);
+    if(location.href != 'http://localhost/transinfo.ru/admin')
+        document.title = (title.charAt(0).toUpperCase()) + title.substr(1);
 }
 
 function FormSubmit(url,data){
@@ -102,7 +106,8 @@ function RemoveNotification(){
     setTimeout(function () {
         $('#flash').remove();
         if(active) {
-            window.location = BaseURL+"admin/dashboard";
+            window.location = BaseURL+"admin#/ajax_admin/index";
+            location.reload(true);
         }
     },5000);
 }
