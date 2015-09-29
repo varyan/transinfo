@@ -78,4 +78,84 @@
         </div>
         <div class="row"></div>
     </div>
+    <div class="col-md-12">
+        <div id="portfolio">
+            <div class="section-header">
+                <hr class="left visible-lg">
+					<span>
+						Our Partners
+					</span>
+                <hr class="right visible-lg">
+            </div>
+
+            <div class="container">
+                <div class="row recent-work">
+                    <div class="col-sm-3">
+                        <div class="detail fadeInUp animated-element">
+                            <a href="#" class="hoverBorder">
+									<span class="hoverBorderWrapper">
+										<img class="img-responsive img-thumbnail" src="assets/img/user4.jpg" alt="portfolio">
+										<span class="hoverBorderInner"></span>
+										<span class="readMore">+ Read more</span>
+									</span>
+                            </a>
+                            <div class="seperator"></div>
+                            <p>
+                            </p><h4>Responsive Design</h4>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at.</small>
+                            <p>
+                            </p></div><!--detail-->
+                    </div><!--col-->
+                    <div class="col-sm-3">
+                        <div class="detail fadeInUp animated-element animation-delay2">
+                            <a href="#" class="hoverBorder">
+									<span class="hoverBorderWrapper">
+										<img class="img-responsive img-thumbnail" src="assets/img/user2.jpg" alt="portfolio">
+										<span class="hoverBorderInner"></span>
+										<span class="readMore">+ Read more</span>
+									</span>
+                            </a>
+                            <div class="seperator"></div>
+                            <p>
+                            </p><h4>HTML5 &amp; CSS3</h4>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at.</small>
+                            <p>
+                            </p></div><!--detail-->
+                    </div><!--col-->
+                    <div class="col-sm-3">
+                        <div class="detail fadeInUp animated-element animation-delay4">
+                            <a href="#" class="hoverBorder">
+									<span class="hoverBorderWrapper">
+										<img class="img-responsive img-thumbnail" src="assets/img/user3.jpg" alt="portfolio">
+										<span class="hoverBorderInner"></span>
+										<span class="readMore">+ Read more</span>
+									</span>
+                            </a>
+                            <div class="seperator"></div>
+                            <p>
+                            </p><h4>Unlimited Theme color</h4>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at.</small>
+                            <p>
+                            </p></div><!--detail-->
+                    </div><!--col-->
+                    <div class="col-sm-3">
+                        <div class="detail fadeInUp animated-element animation-delay6">
+                            <a href="#" class="hoverBorder">
+									<span class="hoverBorderWrapper">
+										<img class="img-responsive img-thumbnail" src="assets/img/user5.jpg" alt="portfolio">
+										<span class="hoverBorderInner"></span>
+										<span class="readMore">+ Read more</span>
+									</span>
+                            </a>
+                            <div class="seperator"></div>
+                            <p>
+                            </p><h4>Browser Compatibility</h4>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at.</small>
+                            <p>
+                            </p></div><!--detail-->
+                    </div><!--col-->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

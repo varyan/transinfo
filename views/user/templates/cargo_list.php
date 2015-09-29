@@ -1,6 +1,7 @@
 <div class="panel panel-default table-responsive">
     <div class="panel-heading">
         <h5 class="label label-primary pull-right"><?=(isset($cargoes)) ? count($cargoes) : 0 ?> Item ( s )</h5>
+        <?php $this->load->view('includes/filter'); ?>
     </div>
     <div class="padding-md clearfix">
         <table class="table table-striped table-bordered" cellspacing="0" width="100%" id="dataTable">

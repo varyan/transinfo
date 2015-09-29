@@ -156,8 +156,8 @@ abstract class VS_Controller extends CI_Controller{
         $this->data['translations'] = $this->user_model->get_where([
             'lang_id'=>$this->config->item('ids_lang')[$lang]
         ],'title,content','translations','array');
-        $this->user_model->set_table('country_'.$lang);
-        $this->data['countries']  =   $this->user_model->get();
+
+        $this->data['countries']  =   $this->user_model->get_country($lang);
 
         $this->user_model->set_table('users');
 

@@ -57,7 +57,7 @@ class Client_Action extends VS_Controller{
                     'is_logged_in' => true
                 ]);
                 $this->user_model->set_table('users');
-                redirect(base_url($this->data['lang']));
+                redirect(base_url($this->data['lang'].'/user/profile'));
             }
         }
     }

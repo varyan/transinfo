@@ -89,7 +89,9 @@ class User_model extends VS_Model{
         }
     }
     /**
-     *
+     * Get by id method
+     * @param int $id
+     * @return stdClass object
      * */
     public function get_by_id($id){
         $this->db->where('user_id',$id);
@@ -97,5 +99,42 @@ class User_model extends VS_Model{
         $this->db->from('user_info');
         $query = $this->db->get();
         return $query->row();
+    }
+    /**
+     * Get country method
+     * @param string $lang
+     * @return stdClass object
+     * */
+    public function get_country($lang){
+        $this->db->select('id, country_name_'.$lang.' as name');
+        $this->db->from('country_');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    /**
+     * Get region method
+     * @param string $lang
+     * @param string $country
+     * @return stdClass object
+     * */
+    public function get_region($lang,$country){
+        $this->db->select('id as reg_id, region_name_'.$lang.' as name');
+        $this->db->from('region_');
+        $this->db->where('id_country',$country);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    /**
+     * Get city method
+     * @param string $lang
+     * @param string $region
+     * @return stdClass object
+     * */
+    public function get_city($lang,$region){
+        $this->db->select('id as city_id, city_name_'.$lang.' as name');
+        $this->db->from('city_');
+        $this->db->where('id_region',$region);
+        $query = $this->db->get();
+        return $query->result();
     }
 }

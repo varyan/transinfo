@@ -26,4 +26,18 @@ class Register extends VS_Controller {
         $this->data['page'] = $view;
         $this->load->view('includes/content',$this->data);
     }
+    /**
+     *
+     * */
+    public function regions(){
+        $regions = $this->user_model->get_region($this->data['lang'],$this->input->post('cn_code'));
+        echo $this->json($regions);
+    }
+    /**
+     *
+     * */
+    public function cities(){
+        $cities = $this->user_model->get_city($this->data['lang'],$this->input->post('region_code'));
+        echo $this->json($cities);
+    }
 }

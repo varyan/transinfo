@@ -77,6 +77,8 @@ $route['(\w{2})/rating/show/(:num)'] = 'client/rating/get/$2';
 
 $route['(\w{2})/langswitch/(.*)']   = 'langswitch/$2';
 $route['(\w{2})/user/(.*)']         = 'user/page/$2';
+$route['(\w{2})/register/regions']  = 'register/regions';
+$route['(\w{2})/register/cities']   = 'register/cities';
 $route['(\w{2})/register/(.*)']     = 'register/page/$2';
 
 $route['(\w{2})/(.*)']              = 'main/page/$2';

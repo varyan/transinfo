@@ -8,6 +8,42 @@ $(document).ready(function () {
         selectAllText: 'Check all!',
     });
 
+    $(document).on('change','#legal_country, #work_country, #load_country, #unload_country', function () {
+        var self = $(this);
+        var country = this.value;
+        var forElem = this.id.split('_')[0]+'_region';
+        var options = '';
+        $.post(BaseURL+'/register/regions',{cn_code:country}, function (data) {
+
+            for(var i = 0; i < data.response.length; i++){
+                options += "<option value='"+ data.response[i].reg_id +"'>"+ data.response[i].name +"</option>";
+            }
+
+            var op = self.find('option:first').clone();
+
+            $('#'+forElem).html(op);
+            $('#'+forElem).append(options);
+        },'json');
+    });
+
+    $(document).on('change','#legal_region, #work_region, #load_region, #unload_region', function () {
+        var self = $(this);
+        var region = this.value;
+        var forElem = this.id.split('_')[0]+'_city';
+        var options = '';
+        $.post(BaseURL+'/register/cities',{region_code:region}, function (data) {
+
+            for(var i = 0; i < data.response.length; i++){
+                options += "<option value='"+ data.response[i].city_id +"'>"+ data.response[i].name +"</option>";
+            }
+
+            var op = self.find('option:first').clone();
+
+            $('#'+forElem).html(op);
+            $('#'+forElem).append(options);
+        },'json');
+    });
+
 
     $(document).on('submit','#ready_for', function (event) {
         event.preventDefault();
